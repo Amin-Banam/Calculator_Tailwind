@@ -2,7 +2,7 @@
 
 ![viewfinal](Calculat.png)
 
-- [Demo Project]()
+- [Demo Project](https://amin-banam.github.io/Calculator_Tailwind/)
 
 - Developed by amin-banam
 
