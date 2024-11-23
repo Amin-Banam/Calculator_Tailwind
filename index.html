@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/output.css">
+    <title>Document</title>
+    <style>
+    *{
+        color: rgb(41, 32, 168);
+    }
+    </style>
+</head>
+<body>
+    
+    <main class="w-[100%] bg-stone-300 h-[100vh] flex justify-center items-center  before:relative transform-style-3d">
+        <!-- <div class=" before:content-[''] before:transform-style-3d before:block before:w-[400px] before:bg-black before:h-[10px] before:absolute before:translate-z-[55px] before:shadow-slate-800 before:rotate-x-[90deg] before:translate-x-[0px] before:translate-y-[-310px]"></div> -->
+        <div class=" border border-stone-600 w-[350px] rounded-md h-[500px] flex flex-wrap bg-stone-700 p-8 transform-style-3d shadow-[1px_1px_550px_100px_rgba(12,12,12,1)]">
+            
+            <span id="eq" class=" rounded-md w-[90%] flex items-center justify-start my-auto mx-auto h-[15%] font-bold text-[25px] bg-lime-950 text-white p-3"></span>
+
+            <!-- <input type="text" id="inp" placeholder="" class="placeholder-slate-400 w-[100%] flex border"> -->
+            
+            <div class="w-[100%] flex justify-center items-center">
+                <input type="text" id="inp" placeholder="" class="flex w-[84%] text-black h-[60%] p-3 font-bold border-none outline-none rounded-sm">
+            </div>
+
+            
+            <div class="w-[100%] flex text-white justify-center transform-style-3d shadow-red-400">
+                <button id="btn" onclick="op(this)" data-stat="*" class="btn mx-1 transition-[0.4s] scale-[1.01] hover:scale-[1] w-[19%] h-[65%] hover:bg-gray-800 rounded-sm border border-gray-700 bg-gray-900 my-auto hover:shadow-[0px_0px_10px_6px_rgb(102,101,105)]">*</button>
+                <button id="btn" onclick="op(this)" data-stat="-" class="btn mx-1 transition-[0.4s] scale-[1.01] hover:scale-[1] w-[19%] h-[65%] hover:bg-gray-800 rounded-sm border border-gray-700 bg-gray-900 my-auto hover:shadow-[0px_0px_10px_6px_rgb(102,101,105)]">-</button>
+                <button id="btn" onclick="op(this)" data-stat="/" class="btn mx-1 transition-[0.4s] scale-[1.01] hover:scale-[1] w-[19%] h-[65%] hover:bg-gray-800 rounded-sm border border-gray-700 bg-gray-900 my-auto hover:shadow-[0px_0px_10px_6px_rgb(102,101,105)]">/</button>
+                <button id="btn" onclick="op(this)" data-stat="+" class="btn mx-1 transition-[0.4s] scale-[1.01] hover:scale-[1] w-[19%] h-[65%] hover:bg-gray-800 rounded-sm border border-gray-700 bg-gray-900 my-auto hover:shadow-[0px_0px_10px_6px_rgb(102,101,105)]">+</button>
+            </div>
+
+
+            <div class="w-[100%] flex text-white justify-center">
+                <button id="btn" onclick="_float(this) "class="btn mx-1 transition-[0.4s] scale-[1.01] hover:scale-[1] w-[19%] h-[65%] hover:bg-gray-800 rounded-sm border border-gray-700 bg-gray-900 my-auto hover:shadow-[0px_0px_10px_6px_rgb(102,101,105)]">.</button>
+                <button id="btn" onclick="_del(this) "class="btn mx-1 transition-[0.4s] scale-[1.01] hover:scale-[1] w-[19%] h-[65%] hover:bg-gray-800 rounded-sm border border-gray-700 bg-gray-900 my-auto hover:shadow-[0px_0px_10px_6px_rgb(102,101,105)]">Back</button>
+                <button id="btn" onclick="op(this) "class="btn mx-1 transition-[0.4s] scale-[1.01] hover:scale-[1] w-[19%] h-[65%] hover:bg-gray-800 rounded-sm border border-gray-700 bg-gray-900 my-auto hover:shadow-[0px_0px_10px_6px_rgb(102,101,105)]">C</button>
+                <button id="btn" onclick ="op(this) "class="btn mx-1 transition-[0.4s] scale-[1.01] hover:scale-[1] w-[19%] h-[65%] hover:bg-gray-800 rounded-sm border border-gray-700 bg-gray-900 my-auto hover:shadow-[0px_0px_10px_6px_rgb(102,101,105)]">=</button>
+            </div>
+
+
+            <div class="w-[100%] flex text-white justify-center ">
+                <button id="btn" onclick="_number(this) "class="btn mx-1 transition-[0.4s] scale-[1.01] hover:scale-[1] w-[26%] h-[65%] hover:bg-gray-800 rounded-sm border border-gray-700 bg-gray-900 my-auto hover:shadow-[0px_0px_10px_6px_rgb(102,101,105)]">1</button>
+                <button id="btn" onclick="_number(this) "class="btn mx-1 transition-[0.4s] scale-[1.01] hover:scale-[1] w-[26%] h-[65%] hover:bg-gray-800 rounded-sm border border-gray-700 bg-gray-900 my-auto hover:shadow-[0px_0px_10px_6px_rgb(102,101,105)]">2</button>
+                <button id="btn" onclick="_number(this) "class="btn mx-1 transition-[0.4s] scale-[1.01] hover:scale-[1] w-[26%] h-[65%] hover:bg-gray-800 rounded-sm border border-gray-700 bg-gray-900 my-auto hover:shadow-[0px_0px_10px_6px_rgb(102,101,105)]">3</button>
+                
+            </div>
+
+
+            <div class="w-[100%] flex text-white justify-center">
+                <button id="btn" onclick="_number(this) "class="btn mx-1 transition-[0.4s] scale-[1.01] hover:scale-[1] w-[26%] h-[65%] hover:bg-gray-800 rounded-sm border border-gray-700 bg-gray-900 my-auto hover:shadow-[0px_0px_10px_6px_rgb(102,101,105)]">4</button>
+                <button id="btn" onclick="_number(this) "class="btn mx-1 transition-[0.4s] scale-[1.01] hover:scale-[1] w-[26%] h-[65%] hover:bg-gray-800 rounded-sm border border-gray-700 bg-gray-900 my-auto hover:shadow-[0px_0px_10px_6px_rgb(102,101,105)]">5</button>
+                <button id="btn" onclick="_number(this) "class="btn mx-1 transition-[0.4s] scale-[1.01] hover:scale-[1] w-[26%] h-[65%] hover:bg-gray-800 rounded-sm border border-gray-700 bg-gray-900 my-auto hover:shadow-[0px_0px_10px_6px_rgb(102,101,105)]">6</button>
+            </div>
+
+
+            <div class="w-[100%] flex text-white justify-center">
+                <button id="btn" onclick="_number(this) "class="btn mx-1 transition-[0.4s] scale-[1.01] hover:scale-[1] w-[26%] h-[65%] hover:bg-gray-800 rounded-sm border border-gray-700 bg-gray-900 my-auto hover:shadow-[0px_0px_10px_6px_rgb(102,101,105)]">7</button>
+                <button id="btn" onclick="_number(this) "class="btn mx-1 transition-[0.4s] scale-[1.01] hover:scale-[1] w-[26%] h-[65%] hover:bg-gray-800 rounded-sm border border-gray-700 bg-gray-900 my-auto hover:shadow-[0px_0px_10px_6px_rgb(102,101,105)]">8</button>
+                <button id="btn" onclick="_number(this) "class="btn mx-1 transition-[0.4s] scale-[1.01] hover:scale-[1] w-[26%] h-[65%] hover:bg-gray-800 rounded-sm border border-gray-700 bg-gray-900 my-auto hover:shadow-[0px_0px_10px_6px_rgb(102,101,105)]">9</button>
+            </div>
+            
+            <div class="w-[100%] flex text-white justify-center">
+                <button id="btn" onclick="_number(this) "class="btn mx-1 transition-[0.4s] scale-[1.01] hover:scale-[1] w-[82%] h-[65%] hover:bg-gray-800 rounded-sm border border-gray-700 bg-gray-900 my-auto hover:shadow-[0px_0px_10px_6px_rgb(102,101,105)]">0</button>
+            </div>
+            
+            
+        </div>
+    </main>
+</body>
+<script>
+    let flag = 1
+    let num1 = ''
+    let num2 = ''
+    let num3 = ''
+    let d = ''
+    let nums = ''
+    let f = ''
+    let _data = ''
+    let  num = document.getElementById('inp')
+    let _placeholder = ''
+    function _number(s) {
+     nums = Number(s.innerHTML)
+     num.value = num.value + nums
+     
+    }
+    function _float(s) {
+        f = s.innerHTML
+        num.value = num.value + f
+        num.focus()
+    }
+    num.focus()
+    function _del(s) {
+        // num = num.value
+        num.value = Number(num.value.slice(0 , -1))
+        // num.value.focus()
+    }
+    const place = ()=>{
+        num.setAttribute('placeholder' , num1)
+    }
+    const op = (s)=> {
+        d = s.innerHTML
+        /////////////////////////////////get first num//////////////////////////////////////////////////////////
+        if (flag == 1) {
+                num1 = Number(num.value)
+                console.log('Amin Banam');
+                num.value = ''
+                num.focus()
+                flag++
+                _data = s.getAttribute('data-stat')
+        //////////////multi///////////////////////////////////////////////////////////////////////////////////////
+        }else if( flag>1 && _data == '*'){
+
+            _data = s.getAttribute('data-stat')
+            
+            ////////////////////////get second num/////////////////////////////
+                num3 = Number(num.value)
+                console.log(num3);
+                num.value = ''
+                num.focus()
+                place()
+            ////////////////////////end get second num//////////////////////////////////
+            
+            /////////////////////////if after * doing +/////////////////////////////////
+            if( _data== '+' && num3 != '') {
+                    num1 = num1*num3
+                    place()
+                    console.log('jjk');
+                    num.value = ''
+                    num.focus()
+            /////////////////////////if after * doing /    /////////////////////////////////
+                }else if(_data == '/' && num3 != ''){
+                    num1 = num1*num3
+                    place()
+                    num.value = ''
+                    num.focus()
+            /////////////////////////if after * doing -/////////////////////////////////
+                }else if( _data=='-' && num3 != '' ){
+                    num1 = num1* num3
+                    place()
+                    num.value = ''
+                    num.focus()
+                }
+            ///////////////////////////////// show result //////////////////////
+                if ( d == '*' || d == '=') {
+                num2 = num1 * num3
+                num1 = num2
+                num.value = ''
+                num.focus()
+                flag = 2
+            }
+        //////////////////////////////////////////end * ///////////////////////////////////////////
+        ////////////////////////////////////++++///////////////////////////////////////////////
+        }else if( flag>1 && _data == '+'){
+            _data = s.getAttribute('data-stat')
+
+            ////////////////////////get second num/////////////////////////////
+                num3 = Number(num.value)
+                console.log(num3);
+                num.value = ''
+                num.focus()
+                place()
+            ////////////////////////end get second num//////////////////////////////////
+            
+            /////////////////////////if after + doing */////////////////////////////////
+            if( _data== '*' && num3 != '') {
+                    num1 = num1 + num3
+                    place()
+                    console.log('jjk');
+                    num.value = ''
+                    num.focus()
+            /////////////////////////if after + doing /    /////////////////////////////////
+                }else if(_data == '/' && num3 != ''){
+                    num1 = num1 + num3
+                    place()
+                    num.value = ''
+                    num.focus()
+            /////////////////////////if after + doing -/////////////////////////////////
+                }else if( _data=='-' && num3 != '' ){
+                    num1 = num1 + num3
+                    place()
+                    num.value = ''
+                    num.focus()
+                }
+        ///////////////////////////////// show result //////////////////////
+                if(d== '+' || d =='='){
+                num2 = num1 + num3
+                num1 = num2
+                num.value = ''
+                num.focus()
+                flag = 2
+            }
+        //////////////////////////////////////////end + ///////////////////////////////////////////
+        ////////////////////////////////////----///////////////////////////////////////////////
+            
+        }else if( flag>1 && _data == '-'){
+
+            _data = s.getAttribute('data-stat')
+
+            ////////////////////////get second num/////////////////////////////
+                num3 = Number(num.value)
+                console.log(num3);
+                num.value = ''
+                num.focus()
+                place()
+            ////////////////////////end get second num//////////////////////////////////
+            
+            /////////////////////////if after - doing +/////////////////////////////////
+            if( _data== '+' && num3 != '') {
+                    num1 = num1 - num3
+                    place()
+                    console.log('jjk');
+                    num.value = ''
+                    num.focus()
+            /////////////////////////if after - doing /    /////////////////////////////////
+                }else if(_data == '/' && num3 != ''){
+                    num1 = num1 - num3
+                    place()
+                    num.value = ''
+                    num.focus() 
+            /////////////////////////if after - doing */////////////////////////////////
+                }else if( _data=='*' && num3 != '' ){
+                    num1 = num1 - num3
+                    place()
+                    num.value = ''
+                    num.focus()
+                }
+            ///////////////////////////////// show result //////////////////////
+                if(d== '-' || d =='='){
+                num2 = num1 - num3
+                num1 = num2
+                num.value = ''
+                num.focus()
+                flag = 2
+            }
+            //////////////////////////////////////////end - ///////////////////////////////////////////
+            ////////////////////////////////////       /      ///////////////////////////////////////////////
+        }else if( flag>1 && _data == '/'){
+            
+
+            _data = s.getAttribute('data-stat')
+
+
+            ////////////////////////get second num/////////////////////////////
+                num3 = Number(num.value)
+                console.log(num3);
+                num.value = ''
+                num.focus()
+                place()
+            ////////////////////////end get second num//////////////////////////////////
+
+            /////////////////////////if after / doing +/////////////////////////////////
+                if( _data== '+' && num3 != '') {
+                    num1 = num1 / num3
+                    place()
+                    console.log('jjk');
+                    num.value = ''
+                    num.focus()
+            /////////////////////////if after / doing *    /////////////////////////////////
+                }else if(_data == '*' && num3 != ''){
+                    num1 = num1 / num3
+                    place()
+                    num.value = ''
+                    num.focus()
+            /////////////////////////if after / doing -/////////////////////////////////
+                }else if( _data=='-' && num3 != '' ){
+                    num1 = num1 / num3
+                    place()
+                    num.value = ''
+                    num.focus()
+                }
+            ///////////////////////////////// show result //////////////////////
+                if(d== '/' || d =='='){
+                num2 = num1 / num3
+                num1 = num2
+                num.value = ''
+                num.focus()
+                flag = 2
+            }
+            //////////////////////////////////////////end///////////////////////////////////////////
+        }
+        ////////////////////////////////////       clear      ///////////////////////////////////////////////
+    
+        if( d == 'C'){
+                num2 = ''
+                num1 = ''
+                num3 = ''
+                document.getElementById('eq').innerHTML = ''
+                flag =1
+                num.value = ''
+                num.focus()
+        }
+        ////////////////////////////////////       end clear      ///////////////////////////////////////////////
+        ////////////////////////////////////       show      ///////////////////////////////////////////////
+            if (d == '=') {
+                document.getElementById('eq').innerHTML = num1
+                // num.value = num1
+                num.setAttribute('placeholder' , '')
+                // num.value = ''
+                // num.focus()
+            }
+}
+</script>
+</html>
